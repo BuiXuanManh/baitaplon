@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../font/fontawesome-free-6.1.1-web/css/all.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/script.js"></script>
+</head>
+
+<body>
+    <div class="container-fuild">
+        <div class="app">
+            <div class="before-header">
+                <i class="fa-solid fa-location-dot" style="margin-left: 50px;"></i> 12 Nguyễn Văn Bảo, Phường 4, Gò Vấp,
+                Thành phố Hồ Chí Minh <b style="margin-left: 10px;"></b>
+                <b style="margin-left: 10px;">Tel</b>..:0977630106
+                <i class="fa fa-envelope" style="margin: 0px 10px 0px 10px;"></i>info@dmstore.vn
+            </div>
+            <div class="header">
+                <div class="logo">
+                    <h1>DM STORE</h1>
+                </div>
+                <div class="box">
+                    <form class="sbox" action="/search" method="get">
+                        <input class="stext" type="text" id="txts" placeholder="Tìm kiếm sản phẩm...">
+                        <i class="fa fa-search"></i>
+                        <input class="search" type="button" name="" id="txtbts" value="TÌM KIẾM">
+                    </form>
+                </div>
+                <div class="form-dn">
+                    <div class="cow1">
+                        <div><label for="txtlg">Email hoặc điện thoại</label></div>
+                        <div><input type="email" name="" id="txtlg" style="font-size: small; margin-bottom: 10px;">
+                            <span id="#tblg" style="color: red;">*</span>
+                        </div>
+                        <div> <input type="checkbox" name="" id=""><b style="font-size:90%;"> Duy trì đăng nhập</b>
+                        </div>
+                    </div>
+                    <div class="cow1">
+                        <div><label for="txtp">Mặt khẩu</label></div>
+                        <div><input type="password" name="" id="txtp" style="font-size: small; margin-bottom: 10px;">
+                            <span id="tbp" style="color: red;">*</span>
+                        </div>
+                        <div><a href="#"
+                                style="color: black; font-size: 90%; text-decoration: none; text-decoration: none;"><b>Quên
+                                    mật khẩu ?</b> </a></div>
+                    </div>
+                    <div class="cow2">
+                        <input class="row-dn" type="button" name="" id="lg" value="ĐĂNG NHẬP"
+                            style="border: none;padding: 4px; margin: 25px 0px 0px 0px;">
+                    </div>
+                </div>
+            </div>
+            <div class="nav">
+                <ul class="nav-lish">
+                    <li><a href="../index.html">TRANG CHỦ</a></li>
+                    <li><a href="../html/gioithieu.html">GIỚI THIỆU</a></li>
+                    <li><a href="../html/dssp.html"><i class="fa-solid fa-list" style="margin-right: 10px ;"></i>DANH
+                            SACH SẢN PHẨM</a>
+                    </li>
+                    <li><a href="../html/sitemap.html">SITEMAP </a></li>
+                    <li style="padding-left: 722px;"><a href="#" id="myBtn"><i class="fa fa-sign-in"
+                                style="margin-right: 10px;"></i>ĐĂNG KÝ </a></li>
+                </ul>
+            </div>
+            <div class="home-filter">
+                <span class="home-filter__label">Sắp sếp theo</span>
+                <button class="home-filter__btn btn btn--primary">Liên quan</button>
+                <button class="home-filter__btn btn" id="mn">Mới nhất</button>
+                <button class="home-filter__btn btn" id="bc">Bán chạy</button>
+                <div class="select-input">
+                    <span class="select-input__label">Giá</span>
+                    <i class="select-input__icon fa fa-angle-down"></i>
+                    <!-- list Gía -->
+                    <ul class="select-input__list">
+                        <li class="select-input__item">
+                            <a href="" class="select-input__link">Giá: Thấp đến cao</a>
+                        </li>
+                        <li class="select-input__item">
+                            <a href="" class="select-input__link">Giá: Cao đến thấp</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="home-filter__page">
+                    <span class="home-filer__page-num">
+                        <!-- trang hiện tại/ số sang -->
+                        <span class="home-filer__page-current">1</span>/14
+                    </span>
+                    <div class="home-filer__page-control">
+                        <!-- nút left bị vô hiệu hóa -->
+                        <a href="" class="home-filer__page-btn home-filer__page-btn--disabled">
+                            <i class="fa fa-angle-left" style="margin: 9px 0 0 10px;"></i>
+                        </a>
+                        <a href="" class="home-filer__page-btn">
+                            <i class="fa fa-angle-right" style="margin: 10px 0 0 10px;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fuild">
+                <div class="row form-group mt-5 pl-5 justify-content-center " id="d1" style="display: flex;">
+                    <div class="ds col-sm-4" style=" text-decoration: none;  ">
+                        <p style="color: rgb(5, 5, 5);"><i class="fa-solid fa-list"></i> DANH SÁCH</p>
+                        <ul class="menu" style="list-style: none;">
+                            <li id="bep"><a href="#">Dụng cụ bếp</a><br></li>
+                            <hr>
+                            <li id="noithat"><a href="#">Đồ nội thất</a><br></li>
+                            <hr>
+                            <li id="sinhhoat"><a href="#">Đồ sinh hoạt</a><br></li>
+                            <hr>
+                            <li id="km"><a href="#">Sản phẩm khuyến mãi</a><br></li>
+                            <hr>
+                            <li id="hcm"><a href="#">Sản phẩm ở HCM</a><br></li>
+                            <hr>
+                            <li id="dt"><a href="#">thiết bị điện tử</a><br></li>
+                            <hr>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4" id="mkd" value="may khu doc">
+                        <a href="../html/maykhudoc.html" class="home-product-item">
+                            <div class="home-product-item__img" style="background-image: url(../img/khudoc.jpg);">
+                            </div>
+                            <h4 class="home-product-item__name">Máy khử độc thực phẩm đa năng Xixa XP90-PRO</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">3.299.000₫ </span>
+                                <span class="home-product-item__price-current">2.799.000₫ </span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <!-- đã ly sẽ thêm class home-product-item__like--liked -->
+                                <span class="home-product-item__like home-product-item__like--liked">
+                                    <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                    <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">Đã bán 111</span>
+                            </div>
+                            <!-- nguồn gốc -->
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__origin-name">ĐÀ NẴNG</span>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">20%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                            <div class="home-product-last">
+                                <span class="home-product-last-item">Tìm sản phẩm tương tự</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4" id="od" value="ong dua">
+                        <a href="../html/ongdua.html" class="home-product-item">
+                            <div class="home-product-item__img" style="background-image: url(../img/khutrung.PNG);">
+                            </div>
+                            <h4 class="home-product-item__name">Ống đũa sấy khử trùng tia UV Xixa</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">459.000đ</span>
+                                <span class="home-product-item__price-current">250.000đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <!-- đã ly sẽ thêm class home-product-item__like--liked -->
+                                <span class="home-product-item__like home-product-item__like--liked">
+                                    <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                    <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">Đã bán 1.4k</span>
+                            </div>
+                            <!-- nguồn gốc -->
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__origin-name">TP Hồ Chí Minh</span>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">45%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                            <div class="home-product-last">
+                                <span class="home-product-last-item">Tìm sản phẩm tương tự</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4" id="t">
+
+                    </div>
+                    <div class="col-sm-4" id="bdt" value="bep dien tu">
+                        <a href="../html/bepdientu.html" class="home-product-item">
+                            <div class="home-product-item__img" style="background-image: url(../img/beptu1.webp);">
+                            </div>
+                            <h4 class="home-product-item__name">BẾP ĐIỆN TỪ ELICA EL 201B</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">14.800.000₫</span>
+                                <span class="home-product-item__price-current">10.800.000</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <!-- đã ly sẽ thêm class home-product-item__like--liked -->
+                                <span class="home-product-item__like home-product-item__like--liked">
+                                    <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                    <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">Đã bán 1</span>
+                            </div>
+                            <!-- nguồn gốc -->
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__origin-name">TP Huế</span>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">33%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                            <div class="home-product-last">
+                                <span class="home-product-last-item">Tìm sản phẩm tương tự</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4" id="gdxp" value="gia do xa phong">
+                        <a href="../html/giadoxp.html" class="home-product-item">
+                            <div class="home-product-item__img" style="background-image: url(../img/giadoxp.PNG);">
+                            </div>
+                            <h4 class="home-product-item__name"> Giá đỡ xà phòng hai lớp bằng nhựa tiện dụng cho nhà
+                                tắm/ nhà bếp</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">33.000đ</span>
+                                <span class="home-product-item__price-current">27.000đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <!-- đã ly sẽ thêm class home-product-item__like--liked -->
+                                <span class="home-product-item__like home-product-item__like--liked">
+                                    <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                    <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">Đã bán 2</span>
+                            </div>
+                            <!-- nguồn gốc -->
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__origin-name">TP Hồ Chí Minh</span>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">11%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                            <div class="home-product-last">
+                                <span class="home-product-last-item">Tìm sản phẩm tương tự</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fuild">
+                <div class="row form-group mt-5 pl-5 justify-content-center" id="d2">
+                    <div class="col-sm-4" id="crc" value="chau rua chen">
+                        <a href="../html/chauruachen.html" class="home-product-item">
+                            <div class="home-product-item__img" style="background-image: url(../img/ruachen1.jpg);">
+                            </div>
+                            <h4 class="home-product-item__name">Chậu rửa chén đúc inox SUS 304 kích thước 100x50cm 2 hộc
+                                đều</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-current">1.390.000</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__like home-product-item__like--liked">
+                                    <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                    <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class=" fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">Đã bán 0</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__origin-name">Bà Rịa - Vũng Tàu</span>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">0%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                            <div class="home-product-last">
+                                <span class="home-product-last-item">Tìm sản phẩm tương tự</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4" id="cnm" value="ca nau mi">
+                        <a href="../html/canaumi.html" class="home-product-item">
+                            <div class="home-product-item__img" style="background-image: url(../img/casieutoc.PNG);">
+                            </div>
+                            <h4 class="home-product-item__name">[Xả Kho] CA NẤU MÌ SIÊU TỐC ĐA NĂNG KÈM XỬNG HẤP TIỆN
+                                DỤNG</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-current">55.000đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__like home-product-item__like--liked">
+                                    <i class="home-product-item__like-icon-empty far fa-heart"></i>
+                                    <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                    <i class="home-product-item__star--gold fas fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">Đã bán 0</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__origin-name">Tuyên Quang</span>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">0%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                            <div class="home-product-last">
+                                <span class="home-product-last-item">Tìm sản phẩm tương tự</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4" id="ncd" value="noi com dien">
+                        <a href="../html/noicomdien.html" class="home-product-item">
+                            <div class="home-product-item__img" style="background-image: url(../img/noicom.png);">
+                            </div>
+                            <h4 class="home-product-item__name">Nồi cơm điện Lock&Lock 0.8L - Màu ngà - EJR716IVY</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">1.703.000đ</span>
+                                <span class="home-product-item__price-current">852.000đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__like home-product-item__like--liked">
+                                    <i class="home-product-item__like-icon-empty fa fa-heart"></i>
+                                    <i class="home-product-item__like-icon-fill fa fa-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">Đã bán 949</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__origin-name">TP Hồ Chí Minh</span>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">50%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                            <div class="home-product-last">
+                                <span class="home-product-last-item">Tìm sản phẩm tương tự</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4" id="gsf" valua="ghe sofa">
+                        <a href="../html/ghesofa.html" class="home-product-item">
+                            <div class="home-product-item__img" style="background-image: url(../img/banghe.jpg);">
+                            </div>
+                            <h4 class="home-product-item__name">
+                                [FREESHIP HÀ NỘI] Ghế sofa nỉ H2 bền đẹp khung gỗ tự nhiên sofa phòng khách,
+                                phòng ngủ, sofa decor đủ kích thước</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">2.450.000đ</span>
+                                <span class="home-product-item__price-current">2.327.500đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__like home-product-item__like--liked">
+                                    <i class="home-product-item__like-icon-empty fas fa-heart"></i>
+                                    <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">Đã bán 16</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__origin-name">TP Hồ Chí Minh</span>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">8%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                            <div class="home-product-last">
+                                <span class="home-product-last-item">Tìm sản phẩm tương tự</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4" id="b" value="ban">
+                        <a href="../html/ban.html" class="home-product-item">
+                            <div class="home-product-item__img" style="background-image: url(../img/ban.PNG);">
+                            </div>
+                            <h4 class="home-product-item__name">Bàn làm việc UN (full phụ kiện tu vít, lục giác, ốc vít
+                                lắp ráp)</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">260.000đ-410.000đ</span>
+                                <span class="home-product-item__price-current">255.550đ-348.500đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__like home-product-item__like--liked">
+                                    <i class="home-product-item__like-icon-empty fas fa-heart"></i>
+                                    <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">Đã bán 9.2k</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__origin-name">TP Hồ Chí Minh</span>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">15%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                            <div class="home-product-last">
+                                <span class="home-product-last-item">Tìm sản phẩm tương tự</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-4 pb-5" id="mhb" value="may hut bui">
+                        <a href="../html/mayhutbui.html" class="home-product-item">
+                            <div class="home-product-item__img" style="background-image: url(../img/hutbui.PNG);">
+                            </div>
+                            <h4 class="home-product-item__name">Máy Hút Bụi Cầm Tay Mini Không Dây Deli - Làm Sạch Cho Ô
+                                Tô, Đồ Dùng Trong Gia Đình - Nhỏ Gọn, Dễ Sử Dụng DL8080 DL8081</h4>
+                            <div class="home-product-item__price">
+                                <span class="home-product-item__price-old">358.000đ-718.000đ</span>
+                                <span class="home-product-item__price-current">179.000đ-369.000đ</span>
+                            </div>
+                            <div class="home-product-item__action">
+                                <span class="home-product-item__like home-product-item__like--liked">
+                                    <i class="home-product-item__like-icon-empty fas fa-heart"></i>
+                                    <i class="home-product-item__like-icon-fill fas fa-heart"></i>
+                                </span>
+                                <div class="home-product-item__rating">
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                    <i class="home-product-item__star--gold fa fa-star"></i>
+                                </div>
+                                <span class="home-product-item__sold">Đã bán 169</span>
+                            </div>
+                            <div class="home-product-item__origin">
+                                <span class="home-product-item__origin-name">Hà Nội</span>
+                            </div>
+                            <div class="home-product-item__favourite">
+                                <span>Yêu thích</span>
+                            </div>
+                            <div class="home-product-item__sale-off">
+                                <span class="home-product-item__sale-off-percent">50%</span>
+                                <span class="home-product-item__sale-off-label">GIẢM</span>
+                            </div>
+                            <div class="home-product-last">
+                                <span class="home-product-last-item">Tìm sản phẩm tương tự</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group text justify-content-center ml-5" id="d3">
+                <ul class="pagination home-product__pagination">
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            <i class="pagination-item__icon fas fa-angle-left"></i>
+                        </a>
+                    </li>
+                    <li class="pagination-item pagination-item--active">
+                        <a href="" class="pagination-item__link">1</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">2</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">3</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">4</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">5</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">6</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">...</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">14</a>
+                    </li>
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            <i class="pagination-item__icon fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- end -->
+            <footer class="footer-distributed">
+                <div class="footer-left">
+                    <h3>DM STORE<span>shop</span></h3>
+                    <p class="footer-links">
+                        <a href="#" class="link-1">Home</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Pricing</a>
+                        <a href="#">About</a>
+                        <a href="#">Faq</a>
+                        <a href="#">Contact</a>
+                    </p>
+                    <p class="footer-company-name">Company Name © 2022© Hệ thống công nghệ Web</p>
+                </div>
+                <div class="footer-center">
+                    <div>
+                        <i class="fa fa-map-marker"></i>
+                        <p><span style="color: white;">12 Nguyễn Văn Bảo, Phường 4, Gò Vấp</span>Thành phố Hồ Chí Minh
+                        </p>
+                    </div>
+                    <div>
+                        <i class="fa fa-phone"></i>
+                        <p>+0977630106</p>
+                    </div>
+                    <div>
+                        <i class="fa fa-envelope"></i>
+                        <p><a href="https://www.facebook.com/">support@company.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <p class="footer-company-about">
+                        <span>Thành viên</span>
+                        20117931_Nguyễn Đăng Dương <br>
+                        20103091_Bùi Xuân Mạnh
+                    </p>
+                    <div class="footer-icons">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-github"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style=" width: 800px; background-color: aliceblue;">
+                <div class="modal-header">
+                    <h2 class="text-form">ĐĂNG KÝ TÀI KHOẢN</h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form name="form1" onSubmit="SubmitForm();" method="post" action="#">
+                        <div class="formabc">
+                            <label for="txtDN" class="title">Tên đăng nhập:</label>
+                            <input type="text" name="txtdn" id="txtDN" placeholder="Nhập tên đăng nhập">
+                            <span id="tendn"> * </span>
+                        </div>
+                        <div class="formabc">
+                            <label for="txtMK" class="title">Mật khẩu:</label>
+                            <input type="password" name="txtmk" id="txtMK" placeholder="Nhập mật khẩu">
+                            <span id="mk"> * </span>
+                        </div>
+                        <div class="formabc">
+                            <label for="txtXNMK" class="title">Nhập lại mật khẩu</label>
+                            <input type="password" name="txtXNMK" id="txtXNMK" size="30"
+                                placeholder="Nhập lại mật khẩu">
+                            <span id="xnmk"> * </span>
+                        </div>
+                        <h5 class="text-form">THÔNG TIN CÁ NHÂN</h5>
+                        <div class="formabc">
+                            <label for="txtName" class="title">Họ và tên:</label>
+                            <input type="text" name="txtName" id="txtName" size="30"
+                                placeholder="Nhập họ và tên của bạn">
+                            <span id="hoten"> *</span>
+                        </div>
+                        <div class="formabc">
+                            <label for="txtNS" class="title">Ngày sinh:</label>
+                            <input type="date" name="txtNS" id="txtNS" size="30">
+                            <span id="ngaysinh"> </span>
+                        </div>
+                        <div class="formabc" class="radio-buttons">
+                            <span class="title">Giới tính:</span>
+                            <input type="radio" name="gender" id="male" value="M" checked>
+                            <label for="male">Nam</label>
+                            <input type="radio" name="gender" id="female" value="f">
+                            <label for="female">Nữ</label>
+                        </div>
+                        <div class="formabc">
+                            <label for="txtDC" class="title">Địa chỉ:</label>
+                            <input type="text" name="txtDC" id="txtDC" size="30" placeholder="Địa chỉ"><span
+                                id="diachi">* </span>
+
+                        </div>
+                        <div class="formabc">
+                            <label for="txtDT" class="title">Điện thoại:</label>
+                            <input type="text" name="txtDT" id="txtDT" size="30" placeholder="Điện thoại"><span
+                                id="dienthoai">*</span>
+
+                        </div>
+                        <div class="formabc">
+                            <label for="txtEmail" class="title">Email:</label>
+                            <input type="email" name="txtEmail" id="txtEmail" size="30" placeholder="Email"><span
+                                id="email">* </span>
+
+                        </div class="formabc">
+                        <div class="submit">
+                            <button type="button" id="submit">Đăng Ký</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
